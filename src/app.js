@@ -15,7 +15,7 @@ app.get("/", (req, res) => {
   return res.json({ message: "NihonGo! API is running" });
 });
 
-app.use("/api/auth", authRoutes);
+app.use("/api/auth", authRouter);
 
 app.use(errorMiddleware);
 
