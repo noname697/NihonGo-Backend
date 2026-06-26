@@ -11,6 +11,10 @@ module.exports = (sequelize, DataTypes) => {
         foreignKey: "user_id",
         as: "lessonProgress",
       });
+      User.hasMany(models.UserCharacterProgress, {
+        foreignKey: "user_id",
+        as: "characterProgress",
+      });
     }
   }
   User.init(
