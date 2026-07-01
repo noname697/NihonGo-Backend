@@ -10,6 +10,38 @@ import { Dashboard } from "../pages/Dashboard";
 import { Trainer } from "../pages/Trainer";
 import { Flashcards } from "../pages/Flashcards";
 
+const ProtectedDashboard = () => {
+  return (
+    <ProtectedRoute>
+      <Dashboard />
+    </ProtectedRoute>
+  );
+};
+
+const ProtectedModules = () => {
+  return (
+    <ProtectedRoute>
+      <Modules />
+    </ProtectedRoute>
+  );
+};
+
+const ProtectedTrainer = () => {
+  return (
+    <ProtectedRoute>
+      <Trainer />
+    </ProtectedRoute>
+  );
+};
+
+const ProtectedFlashcards = () => {
+  return (
+    <ProtectedRoute>
+      <Flashcards />
+    </ProtectedRoute>
+  );
+};
+
 export const router = createBrowserRouter([
   {
     path: "/",
@@ -18,47 +50,31 @@ export const router = createBrowserRouter([
     children: [
       {
         index: true,
-        element: <Landing />,
+        Component: Landing,
       },
       {
         path: "login",
-        element: <Login />,
+        Component: Login,
       },
       {
         path: "register",
-        element: <Register />,
+        Component: Register,
       },
       {
         path: "dashboard",
-        element: (
-          <ProtectedRoute>
-            <Dashboard />
-          </ProtectedRoute>
-        ),
+        Component: ProtectedDashboard,
       },
       {
         path: "modules",
-        element: (
-          <ProtectedRoute>
-            <Modules />
-          </ProtectedRoute>
-        ),
+        Component: ProtectedModules,
       },
       {
         path: "trainer",
-        element: (
-          <ProtectedRoute>
-            <Trainer />
-          </ProtectedRoute>
-        ),
+        Component: ProtectedTrainer,
       },
       {
         path: "flashcards",
-        element: (
-          <ProtectedRoute>
-            <Flashcards />
-          </ProtectedRoute>
-        ),
+        Component: ProtectedFlashcards,
       },
     ],
   },
